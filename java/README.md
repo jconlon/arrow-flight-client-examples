@@ -59,4 +59,10 @@ optional arguments:
       Dremio username
       Default: dremio
 ```
+### Example
 
+[Java Reference](https://arrow.apache.org/docs/java/)
+
+java -jar target/java-flight-sample-client-application-1.0-SNAPSHOT-shaded.jar -query "SELECT * FROM JohnsSpace.D421_testManifest" -host localhost -user jconlon -pass jfkmlk1963
+
+java -jar target/java-flight-sample-client-application-1.0-SNAPSHOT-shaded.jar -query "SELECT * FROM JohnsSpace.D421_testManifest" -host localhost -user jconlon -pass jfkmlk1963 -binpath /tmp/d421TestManifest.arrow

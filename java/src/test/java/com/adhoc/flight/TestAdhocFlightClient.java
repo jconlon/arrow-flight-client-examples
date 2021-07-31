@@ -20,6 +20,8 @@ package com.adhoc.flight;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.adhoc.flight.client.AdhocFlightClient;
+
 import org.apache.arrow.flight.CallHeaders;
 import org.apache.arrow.flight.FlightCallHeaders;
 import org.apache.arrow.flight.FlightRuntimeException;
@@ -31,11 +33,7 @@ import org.apache.arrow.util.AutoCloseables;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
-import com.adhoc.flight.client.AdhocFlightClient;
 
 /**
  * Test Adhoc Flight Client.
@@ -72,9 +70,7 @@ public class TestAdhocFlightClient {
     client = null;
   }
 
-  @Rule
-  public ExpectedException expectedEx = ExpectedException.none();
-
+  
   /**
    * Creates a new FlightClient with no client properties set during authentication.
    *
@@ -120,7 +116,7 @@ public class TestAdhocFlightClient {
   }
 
   @Test
-  public void testSimpleQuery() throws Exception {
+  public void testSimpleQuery()  {
     // Create FlightClient connecting to Dremio.
     createBasicFlightClient(HOST, PORT, USERNAME, PASSWORD);
 
@@ -130,7 +126,7 @@ public class TestAdhocFlightClient {
 
   @Test
   @Ignore("Need to run flight server in encrypted mode.")
-  //TODO Enable encrypted flight server on actions.
+  //You must Enable encrypted flight server on actions.
   public void testSimpleQueryWithDisableServerVerification() throws Exception {
     // Create FlightClient connecting to Dremio.
     creatEncryptedFlightClientWithDisableServerVerification(HOST, PORT, USERNAME, PASSWORD, null);
@@ -140,7 +136,7 @@ public class TestAdhocFlightClient {
   }
 
   @Test
-  public void testSimpleQueryWithClientPropertiesDuringAuth() throws Exception {
+  public void testSimpleQueryWithClientPropertiesDuringAuth()  {
     // Create HeaderCallOption to transport Dremio client properties.
     final CallHeaders callHeaders = new FlightCallHeaders();
     callHeaders.insert("schema", DEFAULT_SCHEMA_PATH);
@@ -162,7 +158,7 @@ public class TestAdhocFlightClient {
   }
 
   @Test
-  public void testSimpleQueryWithDefaultSchemaPath() throws Exception {
+  public void testSimpleQueryWithDefaultSchemaPath() {
     // Create FlightClient connecting to Drmeio.
     createBasicFlightClient(HOST, PORT, USERNAME, PASSWORD);
 
