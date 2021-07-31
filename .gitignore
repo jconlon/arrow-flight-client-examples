@@ -2,3 +2,4 @@ java/.idea
 java/target
 java/*.iml
 .idea
+java/Examples.md
